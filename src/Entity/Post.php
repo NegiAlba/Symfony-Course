@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -84,6 +85,14 @@ class Post
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
@@ -94,6 +103,15 @@ class Post
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
     }
 
     public function getAuthor(): ?User

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title post.title %}
+
+{% block body %}
+    <div class="p-4 p-md-5 mb-4 my-2 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">{{post.title}}</h1>
+    </div>
+  </div>
+    <article class="blog-post">
+        <p class="blog-post-meta">{{post.createdAt|date('d/m/Y')}} by  <a href="#">{{post.author}}</a></p>
+        <p>{{ post.content }}</p>
+    </article>
+{% endblock %}
