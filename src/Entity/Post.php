@@ -154,6 +154,11 @@ class Post
         return $this;
     }
 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
     /**
      * @param null|File|UploadedFile $imageFile
      */

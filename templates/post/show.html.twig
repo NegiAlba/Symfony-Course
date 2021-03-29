@@ -3,7 +3,7 @@
 {% block title post.title %}
 
 {% block body %}
-    <div class="p-4 p-md-5 mb-4 my-2 text-white rounded bg-dark">
+    <div class="p-4 p-md-5 mb-4 my-2 text-white rounded bg-dark" style='background:#555 url("{{ asset('assets/images/uploads/' ~ post.image )}}") center / cover no-repeat'>
         <div class="col-md-6 px-0">
             <h1 class="display-4 fst-italic">{{post.title}}</h1>
         </div>
